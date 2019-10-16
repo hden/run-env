@@ -32,7 +32,7 @@ LABEL com.github.actions.description="Manage multiple deployment profiles for Go
 LABEL com.github.actions.icon="cloud-lightning"
 LABEL com.github.actions.color="gray-dark"
 
-FROM gcr.io/cloud-builders/gcloud-slim@sha256:d4ca671e5764c0f8f494a2a7540ced1753fbbe62af249e74c2fc0bbac6fa94fc
+FROM gcr.io/cloud-builders/gcloud-slim@sha256:64b13b50251622e512d70af7ecbd96ebcc502bc4f3ebbea0445549d0a8b23c22
 ENV ARTIFACT_VERSION=0.1.0-SNAPSHOT
 
 RUN yes | gcloud components update && \
