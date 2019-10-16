@@ -1,4 +1,4 @@
-# run-env
+# run-env [![CircleCI](https://circleci.com/gh/hden/run-env/tree/master.svg?style=svg)](https://circleci.com/gh/hden/run-env/tree/master)
 
 Manage multiple deployment profiles for Google Cloud Run.
 
