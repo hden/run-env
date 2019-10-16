@@ -1,0 +1,16 @@
+{
+  "name": "hello",
+  "image": "gcr.io/cloudrun/hello",
+  "platform": "managed",
+  "concurrency": 10,
+  "max-instances": 1,
+  "memory": "512Mi",
+  "region": "asia-northeast1",
+  "env": {
+    "MYSQL_USER": "local",
+    "MYSQL_PASSWORD": "foobar"
+  },
+  "cloudsql-instances": [
+    "staging"
+  ]
+}

@@ -1,0 +1,9 @@
+name: 'A Github action for Google Cloud Run'
+author: 'Haokang Den'
+description: 'Manage multiple deployment profiles for Google Cloud Run.'
+branding:
+  icon: 'cloud-lightning'
+  color: 'gray-dark'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

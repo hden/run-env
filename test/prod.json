@@ -1,0 +1,12 @@
+{
+  "include": ["dev.json"],
+  "max-instances": 10,
+  "allow-unauthenticated": true,
+  "env": {
+    "MYSQL_USER": "production",
+    "MYSQL_PASSWORD": "baz"
+  },
+  "cloudsql-instances": [
+    "production"
+  ]
+}
