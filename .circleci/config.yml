@@ -1,3 +1,4 @@
+---
 version: 2
 jobs:
   build:
@@ -19,4 +20,3 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "project.clj" }}
       - run: lein test
-s
