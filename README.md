@@ -54,6 +54,7 @@ Several feature that might be extra helpful:
 * You can **include** multiple files.
 * You can nest multiple files.
 * When used with tools like [berglas](https://github.com/GoogleCloudPlatform/berglas), the sensitive information can be safely encrypted and stored, outside of your git repository.
+* Text fields supports shell-like interpolation so you can dynamically configure service name (e.g. `prefix-$CIRCLE_BRANCH`).
 
 ## License
 
