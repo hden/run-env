@@ -7,3 +7,10 @@ branding:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+inputs:
+  profile:
+    required: true
+    description: 'The JSON profile that you would like to use'
+outputs:
+  url:
+    description: 'The deployment URL'

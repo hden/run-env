@@ -22,15 +22,8 @@ COPY . /workspace
 
 RUN lein native-image
 
-LABEL version="0.1.0-SNAPSHOT"
 LABEL repository="https://github.com/hden/run-env"
-LABEL homepage="https://github.com/hden/run-env"
 LABEL maintainer="Haokang Den <haokang.den@gmail.com>"
-
-LABEL com.github.actions.name="A Github action for Google Cloud Run"
-LABEL com.github.actions.description="Manage multiple deployment profiles for Google Cloud Run."
-LABEL com.github.actions.icon="cloud-lightning"
-LABEL com.github.actions.color="gray-dark"
 
 FROM gcr.io/cloud-builders/gcloud-slim@sha256:64b13b50251622e512d70af7ecbd96ebcc502bc4f3ebbea0445549d0a8b23c22
 ENV ARTIFACT_VERSION=0.1.0-SNAPSHOT
