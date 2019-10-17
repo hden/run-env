@@ -12,6 +12,6 @@ jobs:
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: hden/run-env/main
+          name: hden/run-env
           username: hden
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
