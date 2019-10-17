@@ -77,6 +77,7 @@ gcloud beta run deploy [[SERVICE] --namespace=NAMESPACE] --image=IMAGE
                                           (optional x spec)))))
                                (filter some?))
                          (conj args
+                               (optional :project spec)
                                (format-env (get spec :env {}))
                                (format-cloud-sql (get spec :cloudsql-instances []))))))
 
