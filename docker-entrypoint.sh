@@ -18,7 +18,7 @@ main() {
   OUTPUT=$(stripcolors "$OUTPUT")
   URL=$(echo "$OUTPUT" | grep -P 'http.+' -o)
 
-  if [ "$GITHUB_WORKFLOW" -ne "" ]; then
+  if [ -z "$GITHUB_WORKFLOW" ]; then
     echo ::set-output name=url::"$URL"
   fi
 
