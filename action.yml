@@ -11,9 +11,6 @@ inputs:
   profile:
     required: true
     description: 'The deployment profile (JSON)'
-  gcp_credential:
-    required: true
-    description: 'The GCP credential (JSON)'
 outputs:
   url:
     description: 'The deployment URL'
