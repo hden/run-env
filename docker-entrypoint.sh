@@ -4,7 +4,6 @@ main() {
   set -e
   echo "" # see https://github.com/actions/toolkit/issues/168
   sanitize "$INPUT_PROFILE" "profile"
-  activategcp "$GCP_CREDENTIAL"
 
   set +e
   OUTPUT=$(sh -c "$(run-env "$INPUT_PROFILE")" 2>&1)
@@ -46,14 +45,6 @@ sanitize() {
 # stripcolors takes some output and removes ANSI color codes.
 stripcolors() {
   echo "$1" | sed 's/\x1b\[[0-9;]*m//g'
-}
-
-# Optionally activate the service account.
-activategcp() {
-  if [  -n "$1" ]; then
-    echo "$1" > "$HOME"/gcloud.json
-    gcloud auth activate-service-account --key-file="$HOME"/gcloud.json
-  fi
 }
 
 main
