@@ -5,7 +5,7 @@ main() {
   sanitize "$INPUT_PROFILE" "profile"
 
   set +e
-  OUTPUT=$(sh -c "$(run-env $INPUT_PROFILE)" 2>&1)
+  OUTPUT=$(sh -c "$(run-env "$INPUT_PROFILE")" 2>&1)
   SUCCESS=$?
   echo "$OUTPUT"
   set -e
@@ -15,26 +15,26 @@ main() {
   fi
 
   OUTPUT=$(stripcolors "$OUTPUT")
-  URL=$(echo $OUTPUT | grep -P 'http.+' -o)
+  URL=$(echo "$OUTPUT" | grep -P 'http.+' -o)
 
-  if [[ "$GITHUB_WORKFLOW" -ne "" ]]; then
+  if [ "$GITHUB_WORKFLOW" -ne "" ]; then
     echo ::set-output name=url::"$URL"
   fi
 
   # Create a deployment summery from GitHub Actions.
-  if [[ "$GITHUB_EVENT_NAME" == 'pull_request' ]]; then
+  if [ "$GITHUB_EVENT_NAME" = 'pull_request' ]; then
       COMMENT="#### Google Cloud Run
 \`\`\`
 $OUTPUT
 \`\`\`
 *Workflow: \`$GITHUB_WORKFLOW\`, Action: \`$GITHUB_ACTION\`*"
       PAYLOAD=$(echo '{}' | jq --arg body "$COMMENT" '.body = $body')
-      COMMENTS_URL=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.comments_url)
+      COMMENTS_URL=$(jq -r .pull_request.comments_url < "$GITHUB_EVENT_PATH")
       curl -s -S -H "Authorization: token $GITHUB_TOKEN" --header "Content-Type: application/json" --data "$PAYLOAD" "$COMMENTS_URL" > /dev/null
   fi
 }
 
-function sanitize() {
+sanitize() {
   if [ -z "$1" ]; then
     >&2 echo "Unable to find the $2. Did you set with.$2?"
     exit 1
