@@ -14,5 +14,4 @@ jobs:
         with:
           name: hden/run-env/main
           username: hden
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
