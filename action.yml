@@ -6,7 +6,7 @@ branding:
   color: 'gray-dark'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://docker.pkg.github.com/hden/run-env/main'
 inputs:
   profile:
     required: true

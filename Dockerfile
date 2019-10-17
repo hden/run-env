@@ -35,6 +35,6 @@ RUN set -eux && \
     yes | gcloud components install beta
 
 COPY --from=0 /workspace/target/default+uberjar/run-env-$ARTIFACT_VERSION /usr/local/bin/run-env
-COPY docker-entrypoint.sh .
+COPY docker-entrypoint.sh /docker-entrypoint.sh
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
