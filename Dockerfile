@@ -35,7 +35,10 @@ LABEL com.github.actions.color="gray-dark"
 FROM gcr.io/cloud-builders/gcloud-slim@sha256:64b13b50251622e512d70af7ecbd96ebcc502bc4f3ebbea0445549d0a8b23c22
 ENV ARTIFACT_VERSION=0.1.0-SNAPSHOT
 
-RUN yes | gcloud components update && \
+RUN set -eux && \
+    apt-get -y update && \
+    apt-get -y install jq && \
+    yes | gcloud components update && \
     yes | gcloud components install beta
 
 COPY --from=0 /workspace/target/default+uberjar/run-env-$ARTIFACT_VERSION /usr/local/bin/run-env

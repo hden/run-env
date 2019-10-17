@@ -1,0 +1,15 @@
+---
+name: Publish to Docker Registry
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: hden/run-env
+          username: hden
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
