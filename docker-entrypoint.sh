@@ -3,6 +3,7 @@
 main() {
   echo "" # see https://github.com/actions/toolkit/issues/168
   sanitize "$INPUT_PROFILE" "profile"
+  sanitize "$INPUT_GCP_CREDENTIAL" "gcp_credential"
   activategcp
 
   set +e
@@ -49,10 +50,8 @@ stripcolors() {
 
 # Optionally activate gsutil.
 activategcp() {
-  if [ -n "$GCP_CREDENTIAL" ]; then
-      echo "$GCP_CREDENTIAL" > "$HOME"/gcloud.json
-      sh -c "gcloud auth activate-service-account --key-file=$HOME/gcloud.json"
-  fi
+  echo "$INPUT_GCP_CREDENTIAL" > "$HOME"/gcloud.json
+  sh -c "gcloud auth activate-service-account --key-file=$HOME/gcloud.json"
 }
 
 main
