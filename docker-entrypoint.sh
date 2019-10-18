@@ -4,9 +4,10 @@ main() {
   set -e
   echo "" # see https://github.com/actions/toolkit/issues/168
   sanitize "$INPUT_PROFILE" "profile"
+  COMMAND=${INPUT_PROFILE:-deploy}
 
   set +e
-  OUTPUT=$(sh -c "$(run-env "$INPUT_PROFILE")" 2>&1)
+  OUTPUT=$(sh -c "$(run-env "$COMMAND" "$INPUT_PROFILE")" 2>&1)
   SUCCESS=$?
   echo "$OUTPUT"
   set -e

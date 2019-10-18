@@ -11,6 +11,8 @@ inputs:
   profile:
     required: true
     description: 'The deployment profile (JSON)'
+  command:
+    description: 'deploy or delete, (defaults to deploy)'
 outputs:
   url:
     description: 'The deployment URL'
