@@ -18,10 +18,7 @@ main() {
 
   OUTPUT=$(stripcolors "$OUTPUT")
   URL=$(echo "$OUTPUT" | grep -P 'http.+' -o)
-
-  if [ -z "$GITHUB_WORKFLOW" ]; then
-    echo ::set-output name=url::"$URL"
-  fi
+  echo ::set-output name=url::"$URL"
 
   # Create a deployment summery from GitHub Actions.
   if [ "$GITHUB_EVENT_NAME" = 'pull_request' ]; then
