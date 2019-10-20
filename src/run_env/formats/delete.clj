@@ -18,7 +18,7 @@ gcloud beta run services delete (SERVICE : --namespace=NAMESPACE)
               (string? image)
               (map? spec))]
    :post [(string? %)]}
-  (string/join " " (into [(format "gcloud beta run services delete %s" (core/interpolate name))]
+  (string/join " " (into [(format "yes | gcloud beta run services delete %s" (core/interpolate name))]
                          (comp (map (fn [x]
                                       (when x
                                         (if (string? x)
