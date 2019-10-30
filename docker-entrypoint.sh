@@ -16,6 +16,10 @@ main() {
       exit $SUCCESS
   fi
 
+  if [ "$COMMAND" = "delete" ]; then
+      exit 0
+  fi
+
   OUTPUT=$(stripcolors "$OUTPUT")
   URL=$(echo "$OUTPUT" | grep -P 'http.+' -o)
   echo ::set-output name=url::"$URL"
