@@ -13,28 +13,16 @@ main() {
   set -e
 
   if [ $SUCCESS -ne 0 ]; then
-      exit $SUCCESS
+    exit $SUCCESS
   fi
 
   if [ "$COMMAND" = "delete" ]; then
-      exit 0
+    exit 0
   fi
 
   OUTPUT=$(stripcolors "$OUTPUT")
   URL=$(echo "$OUTPUT" | grep -P 'http.+' -o)
   echo ::set-output name=url::"$URL"
-
-  # Create a deployment summery from GitHub Actions.
-  if [ "$GITHUB_EVENT_NAME" = 'pull_request' ]; then
-      COMMENT="#### Google Cloud Run
-\`\`\`
-$OUTPUT
-\`\`\`
-*Workflow: \`$GITHUB_WORKFLOW\`, Action: \`$GITHUB_ACTION\`*"
-      PAYLOAD=$(echo '{}' | jq --arg body "$COMMENT" '.body = $body')
-      COMMENTS_URL=$(jq -r .pull_request.comments_url < "$GITHUB_EVENT_PATH")
-      curl -s -S -H "Authorization: token $GITHUB_TOKEN" --header "Content-Type: application/json" --data "$PAYLOAD" "$COMMENTS_URL" > /dev/null
-  fi
 }
 
 sanitize() {
