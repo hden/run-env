@@ -3,7 +3,7 @@
             [run-env.formats.core :as core]))
 
 (def ^:const synopsis "
-gcloud beta run services delete (SERVICE : --namespace=NAMESPACE)
+gcloud run services delete (SERVICE : --namespace=NAMESPACE)
     [--platform=PLATFORM] [--region=REGION]
     [--cluster=CLUSTER --cluster-location=CLUSTER_LOCATION]
     [--context=CONTEXT --kubeconfig=KUBECONFIG] [GCLOUD_WIDE_FLAG ...]")
@@ -18,7 +18,7 @@ gcloud beta run services delete (SERVICE : --namespace=NAMESPACE)
               (string? image)
               (map? spec))]
    :post [(string? %)]}
-  (string/join " " (into [(format "yes | gcloud beta run services delete %s" (core/interpolate name))]
+  (string/join " " (into [(format "yes | gcloud run services delete %s" (core/interpolate name))]
                          (comp (map (fn [x]
                                       (when x
                                         (if (string? x)
