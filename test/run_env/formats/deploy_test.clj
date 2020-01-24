@@ -19,11 +19,11 @@
 (deftest format-parameters
   (testing "configurations"
     (are [expected m] (= expected (deploy/format-parameters m))
-      "gcloud beta run deploy service --image=gcr.io/cloudrun/hello"
+      "gcloud run deploy service --image=gcr.io/cloudrun/hello"
       {:name "service"
        :image "gcr.io/cloudrun/hello"}
 
-      "gcloud beta run deploy service --image=gcr.io/cloudrun/hello --concurrency=10 --max-instances=1 --memory=512Mi --region=asia-northeast1 --update-env-vars=FOO=foo,BAR=bar"
+      "gcloud run deploy service --image=gcr.io/cloudrun/hello --concurrency=10 --max-instances=1 --memory=512Mi --region=asia-northeast1 --update-env-vars=FOO=foo,BAR=bar"
       {:name "service"
        :image "gcr.io/cloudrun/hello"
        :concurrency 10
