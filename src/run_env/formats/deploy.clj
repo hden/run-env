@@ -3,7 +3,7 @@
             [run-env.formats.core :as core]))
 
 (def ^:const synopsis "
-gcloud beta run deploy [[SERVICE] --namespace=NAMESPACE] --image=IMAGE
+gcloud run deploy [[SERVICE] --namespace=NAMESPACE] --image=IMAGE
     [--async] [--concurrency=CONCURRENCY] [--max-instances=MAX_INSTANCES]
     [--memory=MEMORY] [--platform=PLATFORM] [--timeout=TIMEOUT]
     [--clear-env-vars | --set-env-vars=[KEY=VALUE,...]
@@ -51,7 +51,7 @@ gcloud beta run deploy [[SERVICE] --namespace=NAMESPACE] --image=IMAGE
               (string? image)
               (map? spec))]
    :post [(string? %)]}
-  (string/join " " (into [(format "gcloud beta run deploy %s" (core/interpolate name))]
+  (string/join " " (into [(format "gcloud run deploy %s" (core/interpolate name))]
                          (comp (map (fn [x]
                                       (when x
                                         (if (string? x)
