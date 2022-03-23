@@ -4,7 +4,7 @@
   :url "https://github.com/hden/run-env"
   :license {:name "MIT"
             :url "https://choosealicense.com/licenses/mit/"}
-  :dependencies [[org.clojure/clojure "1.10.3"]
+  :dependencies [[org.clojure/clojure "1.11.0"]
                  [org.clojure/data.json "2.4.0"]]
   :main ^:skip-aot run-env.core
   :target-path "target/%s"
