@@ -25,7 +25,7 @@ RUN lein native-image
 LABEL repository="https://github.com/hden/run-env"
 LABEL maintainer="Haokang Den <haokang.den@gmail.com>"
 
-FROM gcr.io/cloud-builders/gcloud-slim@sha256:06ea8bd793351d4a8c9b3169ff40e1fa46259e44a51d7432064d9c5d11d0d29f
+FROM gcr.io/cloud-builders/gcloud-slim@sha256:77a5a4cd4e64a55fb04b25b44638d8e8105e56760c264015b57719632f74324c
 ENV ARTIFACT_VERSION=0.1.0-SNAPSHOT
 
 RUN set -eux && \
