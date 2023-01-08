@@ -1,10 +1,10 @@
-FROM clojure:openjdk-8-lein-stretch
+FROM clojure:openjdk-11-lein
 
-ARG GRAAL_VERSION=19.2.0.1
+ARG GRAAL_VERSION=22.3.0
 ENV ARTIFACT_VERSION=0.1.0-SNAPSHOT
 ENV LANG=en_US.UTF-8
 
-ENV GRAALVM_PKG=https://github.com/oracle/graal/releases/download/vm-$GRAAL_VERSION/graalvm-ce-linux-amd64-$GRAAL_VERSION.tar.gz \
+ENV GRAALVM_PKG=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAAL_VERSION/graalvm-ce-java11-linux-aarch64-$GRAAL_VERSION.tar.gz \
     JAVA_HOME=/usr/local/graalvm-ce-$GRAAL_VERSION/ \
     GRAALVM_HOME=/usr/local/graalvm-ce-$GRAAL_VERSION/ \
     PATH=/usr/local/graalvm-ce-$GRAAL_VERSION/bin/:$PATH
