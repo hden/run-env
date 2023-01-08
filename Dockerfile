@@ -5,9 +5,9 @@ ENV ARTIFACT_VERSION=0.1.0-SNAPSHOT
 ENV LANG=en_US.UTF-8
 
 ENV GRAALVM_PKG=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAAL_VERSION/graalvm-ce-java11-linux-amd64-$GRAAL_VERSION.tar.gz \
-    JAVA_HOME=/usr/local/graalvm-ce-$GRAAL_VERSION/ \
-    GRAALVM_HOME=/usr/local/graalvm-ce-$GRAAL_VERSION/ \
-    PATH=/usr/local/graalvm-ce-$GRAAL_VERSION/bin/:$PATH
+    JAVA_HOME=/usr/local/graalvm-ce-java11-$GRAAL_VERSION/ \
+    GRAALVM_HOME=/usr/local/graalvm-ce-java11-$GRAAL_VERSION/ \
+    PATH=/usr/local/graalvm-ce-java11-$GRAAL_VERSION/bin/:$PATH
 
 RUN set -eux && \
     apt-get -y update && \
