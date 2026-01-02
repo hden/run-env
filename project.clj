@@ -5,7 +5,7 @@
   :license {:name "MIT"
             :url "https://choosealicense.com/licenses/mit/"}
   :dependencies [[org.clojure/clojure "1.12.4"]
-                 [org.clojure/data.json "2.5.1"]]
+                 [org.clojure/data.json "2.5.2"]]
   :main ^:skip-aot run-env.core
   :target-path "target/%s"
   :plugins [[io.taylorwood/lein-native-image "0.3.1"]]
